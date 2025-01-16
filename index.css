@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
+* {
+  background-color: rgb(248, 243, 243);
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  border: 1px solid black;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1440px;
+  height: 79px;
+  align-items: center;
+  font-size: 16px;
+}
+header .logo {
+  display: flex;
+  border: 1px solid black;
+  height: 59px;
+  width: 180px;
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+header .navigation {
+  display: flex;
+  border: 1px solid black;
+  width: 645px;
+  height: 45px;
+  padding: 10px, 0;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: inherit;
+}
+header .button {
+  border: 1px solid black;
+  width: 124px;
+  height: 42px;
+}
+
+header .font_logo {
+  font-family: "Inspiration", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navigation a {
+  font-family: "Inter", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+
+.button a {
+  border: 1px solid black;
+  background: linear-gradient(rgb(102, 117, 247), rgb(87, 0, 123));
+  text-decoration: none;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
