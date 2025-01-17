@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 
+// max 830 et min 430 px
 * {
   background-color: rgb(248, 243, 243);
   box-sizing: border-box;
@@ -7,143 +8,129 @@
   padding: 0;
 }
 
+//color
+$white: white;
 $black: black;
+
+//mixin
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @mixin border {
   border: 1px solid $black;
 }
 
-/* CSS pour le header */
-header {
-  display: flex;
-  // @include border;
-  flex-direction: row;
-  justify-content: space-between;
-  //   padding: 10px, 25xp, 10px, 25px;
-  align-items: center;
-  font-size: 16px;
-  width: 100%;
-  font-family: "";
-
-  .logo {
-    display: flex;
-    // @include border;
-    height: 59px;
-    width: 180px;
-    margin-left: 25px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    align-items: center;
-  }
-
-  .navigation {
-    display: flex;
-    @include border;
-    width: 645px;
-    height: 45px;
-    padding: 10px, 0;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: inherit;
-  }
-  .navigation a {
-    font-family: "Inter", serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 16px;
-    color: black;
-    text-decoration: none;
-  }
-  .button {
-    display: flex;
-    //@include border;
-    width: 124px;
-    height: 42px;
-    background: linear-gradient(
-      to bottom left,
-      rgba(102, 117, 247, 1),
-      rgba(87, 0, 123, 1)
-    );
-    text-decoration: none;
-    color: white;
-    align-items: inherit;
-    justify-content: center;
-    margin: 18.5px 25px 18.5px 0;
-  }
-}
-
-header .logo_font {
-  font-family: "Inspiration", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.button a {
-  display: flex;
-  @include border;
-  background: linear-gradient(rgba(102, 117, 247, 1), rgba(87, 0, 123, 1));
-  text-decoration: none;
-  color: white;
-  border-radius: 5px;
-}
-
-/* CSS pour l'image d'accroche */
-
-.first_block {
-  display: flex;
-  @include border;
-  width: 66%;
-  height: 100vh;
-  //justify-content: center;
-  margin: auto;
-}
-
-main,
-.block1,
-.block2,
-.block3 {
-  width: 50%;
-}
-
-/* met une resolution pour des tablettes */
-
-@media screen and (max-width: 1025px) {
-  .bannier {
-    display: flex;
+// Css pour les tablettes
+@media screen and (min-width: 700px) and (max-width: 900px) {
+  body {
+    @include flex;
     flex-direction: column;
-    background-color: red;
-    font-family: "Inspiration", serif;
-    font-size: 30px;
-  }
-  .logo {
-    height: 150px;
-  }
-  .logo_img {
-    display: flex;
-    padding: 0 25px;
-    justify-items: center;
-  }
-  navigation {
+    gap: 1em;
     width: 100%;
   }
 
-  .navigation a {
-    font-size: 20px;
-    color: green;
+  header {
+    @include flex;
+    flex-direction: column;
+    gap: 1em;
   }
 
-  .button {
-    margin: 25px;
+  nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.05em;
+
+    a {
+      text-align: center;
+      color: $black;
+      text-decoration: none;
+      padding: 0.25em;
+      flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
+    }
   }
 }
 
-/* met une résolution pour les portables */
+// Css pour les mobiles
 
 @media screen and (max-width: 700px) {
-  .bannier {
-    display: flex;
+  body {
+    @include flex;
+    flex-direction: column;
+    gap: 3em;
+    width: 100%;
+  }
 
-    background-color: yellow;
+  header {
+    @include flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: raw;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+
+    a {
+      text-align: center;
+      color: $black;
+      text-decoration: none;
+      padding: 0.25em;
+      flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
+    }
+  }
+}
+/* CSS pour le header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Inspiration", cursive;
+    gap: 1em;
+  }
+
+  nav a {
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 3em;
+    font-size: 1.15em;
+  }
+
+  nav a:hover {
+    color: #050606;
+  }
+
+  .button {
+    display: flex;
+    gap: 1em;
+
+    a {
+      background-color: blue;
+      padding: 7px 8px;
+      border-radius: 8px;
+      color: white;
+    }
   }
 }
