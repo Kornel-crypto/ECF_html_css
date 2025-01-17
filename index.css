@@ -10,7 +10,6 @@
 /* CSS pour le header */
 header {
   display: flex;
-  border: 1px solid black;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +19,6 @@ header {
 }
 header .logo {
   display: flex;
-  border: 1px solid black;
   height: 59px;
   width: 180px;
   margin-left: 25px;
@@ -48,7 +46,6 @@ header .navigation a {
 }
 header .button {
   display: flex;
-  border: 1px solid black;
   width: 124px;
   height: 42px;
   background: linear-gradient(to bottom left, rgb(102, 117, 247), rgb(87, 0, 123));
@@ -79,10 +76,16 @@ header .logo_font {
 .first_block {
   display: flex;
   border: 1px solid black;
-  width: 1145px;
+  width: 66%;
   height: 100vh;
-  justify-content: center;
-  padding: 69px 10% 106px 10%;
+  margin: auto;
+}
+
+main,
+.block1,
+.block2,
+.block3 {
+  width: 50%;
 }
 
 /* met une resolution pour des tablettes */

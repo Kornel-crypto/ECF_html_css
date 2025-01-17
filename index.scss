@@ -7,10 +7,16 @@
   padding: 0;
 }
 
+$black: black;
+
+@mixin border {
+  border: 1px solid $black;
+}
+
 /* CSS pour le header */
 header {
   display: flex;
-  border: 1px solid black;
+  // @include border;
   flex-direction: row;
   justify-content: space-between;
   //   padding: 10px, 25xp, 10px, 25px;
@@ -21,7 +27,7 @@ header {
 
   .logo {
     display: flex;
-    border: 1px solid black;
+    // @include border;
     height: 59px;
     width: 180px;
     margin-left: 25px;
@@ -32,7 +38,7 @@ header {
 
   .navigation {
     display: flex;
-    border: 1px solid black;
+    @include border;
     width: 645px;
     height: 45px;
     padding: 10px, 0;
@@ -50,7 +56,7 @@ header {
   }
   .button {
     display: flex;
-    border: 1px solid black;
+    //@include border;
     width: 124px;
     height: 42px;
     background: linear-gradient(
@@ -75,7 +81,7 @@ header .logo_font {
 
 .button a {
   display: flex;
-  border: 1px solid black;
+  @include border;
   background: linear-gradient(rgba(102, 117, 247, 1), rgba(87, 0, 123, 1));
   text-decoration: none;
   color: white;
@@ -86,11 +92,18 @@ header .logo_font {
 
 .first_block {
   display: flex;
-  border: 1px solid black;
-  width: 1145px;
+  @include border;
+  width: 66%;
   height: 100vh;
-  justify-content: center;
-  padding: 69px 10% 106px 10%;
+  //justify-content: center;
+  margin: auto;
+}
+
+main,
+.block1,
+.block2,
+.block3 {
+  width: 50%;
 }
 
 /* met une resolution pour des tablettes */
