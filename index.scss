@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 
-// max 830 et min 430 px
 * {
   background-color: rgb(248, 243, 243);
   box-sizing: border-box;
@@ -11,6 +10,8 @@
 //color
 $white: white;
 $black: black;
+$violet: linear-gradient ((rgba(222, 67, 150, 1) 1) to(rgba(13, 28, 159, 0)));
+$button: linear-gradient ((rgba(13, 28, 159, 0) 1) to (rgba(87, 0, 123, 1)));
 
 //mixin
 
@@ -24,19 +25,123 @@ $black: black;
   border: 1px solid $black;
 }
 
+/* CSS pour le header */
+
+main {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Inspiration", cursive;
+    gap: 1em;
+  }
+
+  nav a {
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 1em;
+    font-size: 1.15em;
+  }
+
+  nav a:hover {
+    color: #050606;
+  }
+
+  .button {
+    display: flex;
+    gap: 1em;
+
+    a {
+      background-color: blue;
+      padding: 7px 8px;
+      border-radius: 8px;
+      color: white;
+    }
+  }
+}
+
+// partie numero 2 avec texte et image à droite
+
+.presentation {
+  $include: flex;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10%;
+  width: 100%;
+  height: 100vh;
+  gap: 5em;
+  margin-top: 2em;
+
+  .presentation_left {
+    display: flex;
+
+    flex-direction: column;
+    gap: 1em;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5em;
+    color: $black;
+    width: 100%;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .presentation_right {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    font-size: 1.5em;
+    color: $black;
+    width: 100%;
+    image-rendering: auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      align-self: flex-start;
+    }
+  }
+}
+
 // Css pour les tablettes
-@media screen and (min-width: 700px) and (max-width: 900px) {
+@media screen and (min-width: 600px) and (max-width: 1024px) {
   body {
     @include flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1%;
     width: 100%;
   }
 
   header {
     @include flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0%;
+    padding-bottom: 2em;
+  }
+
+  .logo {
+    padding-bottom: 1em;
   }
 
   nav {
@@ -44,7 +149,9 @@ $black: black;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.05em;
+    gap: 10%;
+    background-color: royalblue;
+    padding: 0.5em;
 
     a {
       text-align: center;
@@ -58,7 +165,7 @@ $black: black;
 
 // Css pour les mobiles
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   body {
     @include flex;
     flex-direction: column;
@@ -85,52 +192,21 @@ $black: black;
       color: $black;
       text-decoration: none;
       padding: 0.25em;
-      flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
+      //flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
     }
   }
-}
-/* CSS pour le header */
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: "Inspiration", cursive;
-    gap: 1em;
+  .presentation {
+    @include flex;
+    flex-direction: column;
   }
 
-  nav a {
-    text-decoration: none;
+  .presentation_left {
+    flex-direction: column;
+    width: 100%;
   }
 
-  nav {
-    display: flex;
-    gap: 3em;
-    font-size: 1.15em;
-  }
-
-  nav a:hover {
-    color: #050606;
-  }
-
-  .button {
-    display: flex;
-    gap: 1em;
-
-    a {
-      background-color: blue;
-      padding: 7px 8px;
-      border-radius: 8px;
-      color: white;
-    }
+  .presentation_right {
+    order: -1;
   }
 }
