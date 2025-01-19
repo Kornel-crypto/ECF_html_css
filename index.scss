@@ -22,20 +22,29 @@ $button: linear-gradient ((rgba(13, 28, 159, 0) 1) to (rgba(87, 0, 123, 1)));
 }
 
 @mixin border {
+  display: flex;
   border: 1px solid $black;
 }
 
-/* CSS pour le header */
-
+// CSS pour le body
 main {
+  position: relative;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #f8f8f8;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+  }
 }
 
+/* CSS pour le header */
 header {
   display: flex;
   justify-content: space-between;
@@ -124,6 +133,8 @@ header {
   }
 }
 
+// partie 3 avec le carousel
+
 // Css pour les tablettes
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   body {
@@ -164,7 +175,6 @@ header {
 }
 
 // Css pour les mobiles
-
 @media screen and (max-width: 600px) {
   body {
     @include flex;
