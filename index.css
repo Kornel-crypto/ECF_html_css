@@ -97,16 +97,26 @@ header .button a {
   align-self: flex-start;
 }
 
+.circle1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%) translateX(350px);
+  z-index: -1;
+}
+
 .carousel {
+  position: relative;
   display: flex;
   display: flex;
   border: 1px solid black;
   flex-direction: column;
-  gap: 1em;
   padding: 0 5%;
   width: 100%;
   height: 100vh;
   margin-top: 2em;
+  background: #f8f8f8;
+  z-index: 1;
 }
 .carousel .texte {
   font-family: "Inter", sans-serif;
@@ -138,6 +148,34 @@ header .button a {
   max-height: 335px;
   gap: 2em;
   overflow: hidden;
+}
+.carousel .carousel_image {
+  display: flex;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  height: 1em;
+}
+.carousel .carousel_image img {
+  width: 100px;
+  height: 25px;
+}
+.carousel .rectangle_image {
+  display: flex;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: 2em;
+}
+.carousel .rectangle_image img {
+  width: 100px;
+  height: 25px;
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {

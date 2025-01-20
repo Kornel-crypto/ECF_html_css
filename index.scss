@@ -92,7 +92,7 @@ header {
 // partie numero 2 avec texte et image à droite
 
 .presentation {
-  $include: flex;
+  //$include flex;
   display: flex;
   flex-direction: row;
   padding: 0 10%;
@@ -135,15 +135,26 @@ header {
 
 // partie 3 avec le carousel
 
+.circle1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%) translateX(350px);
+  z-index: -1;
+}
+
 .carousel {
+  position: relative;
   display: flex;
   @include border;
   flex-direction: column;
-  gap: 1em;
+  //gap: 1em;
   padding: 0 5%;
   width: 100%;
   height: 100vh;
   margin-top: 2em;
+  background: #f8f8f8;
+  z-index: 1;
 
   .texte {
     //juste centrer le texte en haut
@@ -179,6 +190,36 @@ header {
     max-height: 335px;
     gap: 2em;
     overflow: hidden;
+  }
+
+  .carousel_image {
+    display: flex;
+    @include border;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: 1em;
+
+    img {
+      width: 100px;
+      height: 25px;
+    }
+  }
+
+  .rectangle_image {
+    display: flex;
+    @include border;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: 2em;
+
+    img {
+      width: 100px;
+      height: 25px;
+    }
   }
 }
 
