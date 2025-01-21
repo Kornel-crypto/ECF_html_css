@@ -1,30 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 
 * {
-  background-color: rgb(248, 243, 243);
+  background-color: white;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 //color
-$white: white;
-$black: black;
-$violet: linear-gradient ((rgba(222, 67, 150, 1) 1) to(rgba(13, 28, 159, 0)));
-$button: linear-gradient ((rgba(13, 28, 159, 0) 1) to (rgba(87, 0, 123, 1)));
 
 //mixin
-
-@mixin flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin border {
-  display: flex;
-  border: 1px solid $black;
-}
 
 // CSS pour le body
 main {
@@ -32,16 +17,9 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f8f8f8;
+  //background-color: #f8f8f8;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-50%);
-  }
 }
 
 /* CSS pour le header */
@@ -81,7 +59,11 @@ header {
     gap: 1em;
 
     a {
-      background-color: blue;
+      background: linear-gradient(
+        to bottom left,
+        rgba(102, 117, 247, 1),
+        rgba(87, 0, 123, 1)
+      );
       padding: 7px 8px;
       border-radius: 8px;
       color: white;
@@ -99,20 +81,44 @@ header {
   width: 100%;
   height: 100vh;
   gap: 5em;
-  margin-top: 2em;
+  margin-top: 5em;
 
   .presentation_left {
     display: flex;
-
     flex-direction: column;
     gap: 1em;
     font-family: "Inter", sans-serif;
     font-size: 1.5em;
-    color: $black;
+    color: black;
     width: 100%;
+    font-weight: 300;
+
+    .text-gradient {
+      background: linear-gradient(
+        to right,
+        rgba(222, 67, 150, 1),
+        rgba(13, 28, 159, 0)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h1 {
+      font-weight: normal; // Enlever le gras pour les h1 dans .presentation_left
+    }
 
     a {
       text-decoration: none;
+      background: linear-gradient(
+        to bottom left,
+        rgba(102, 117, 247, 1),
+        rgba(87, 0, 123, 1)
+      );
+      padding: 7px 8px;
+      border-radius: 8px;
+      color: white;
+      width: fit-content;
     }
   }
 
@@ -121,7 +127,7 @@ header {
     flex-direction: column;
     gap: 1em;
     font-size: 1.5em;
-    color: $black;
+    color: black;
     width: 100%;
     image-rendering: auto;
 
@@ -135,90 +141,72 @@ header {
 
 // partie 3 avec le carousel
 
-.circle1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-50%) translateX(350px);
-  z-index: -1;
-}
-
-.carousel {
-  position: relative;
+.second_block {
   display: flex;
-  @include border;
   flex-direction: column;
-  //gap: 1em;
-  padding: 0 5%;
-  width: 100%;
-  height: 100vh;
-  margin-top: 2em;
-  background: #f8f8f8;
-  z-index: 1;
-
-  .texte {
-    //juste centrer le texte en haut
-    font-family: "Inter", sans-serif;
-    font-size: 1.5em;
-    color: $black;
-    text-align: center;
-  }
-  .image_main {
-    //pour mettre les flex en ligne en bas du flex parent
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150%;
-    gap: 5em;
-    margin-top: auto;
-    margin-bottom: auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  width: 150%;
+  justify-content: center;
+  transform: translateX(-25%);
 
   img {
-    //regle la taille des images
-    width: 58px;
-    height: 58px;
+    width: fit-content;
   }
 
-  .image {
+  .second_block_carousel {
     display: flex;
-    @include border;
-    flex-direction: column;
-    max-height: 335px;
-    gap: 2em;
-    overflow: hidden;
-  }
-
-  .carousel_image {
-    display: flex;
-    @include border;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    height: 1em;
+  }
+}
 
-    img {
-      width: 100px;
-      height: 25px;
+// partie 4 avec texte a droite et image à gauche
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  background: white;
+  border-radius: 8px;
+  //box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 0% 10%;
+  margin-top: 4em;
+  .content {
+    flex: 1;
+    padding: 20px;
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 2em;
+      font-weight: normal;
+      span {
+        font-weight: bold;
+      }
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin-bottom: 2em;
+      color: #333;
+      span {
+        color: violet;
+      }
+    }
+
+    a {
+      padding: 150px 20px;
+      color: #0077ff;
+      text-decoration: none;
     }
   }
-
-  .rectangle_image {
+  .item_container {
+    flex: 1;
     display: flex;
-    @include border;
     justify-content: center;
-    align-items: flex-end;
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: 2em;
-
+    align-items: center;
     img {
-      width: 100px;
-      height: 25px;
+      max-width: 100%;
+      height: auto;
     }
   }
 }
@@ -226,38 +214,38 @@ header {
 // Css pour les tablettes
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   body {
-    @include flex;
+    display: flex;
     flex-direction: column;
     gap: 1%;
     width: 100%;
   }
 
   header {
-    @include flex;
+    display: flex;
     flex-direction: column;
     gap: 0%;
     padding-bottom: 2em;
-  }
-
-  .logo {
-    padding-bottom: 1em;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
-    background-color: royalblue;
-    padding: 0.5em;
-
+    .logo {
+      padding-bottom: 1em;
+    }
     a {
       text-align: center;
-      color: $black;
+      color: black;
       text-decoration: none;
-      padding: 0.25em;
-      flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
+      padding: 1em;
+    }
+  }
+
+  .presentation {
+    p {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .presentation_right {
+      display: flex;
+      height: fit-content;
     }
   }
 }
@@ -265,14 +253,14 @@ header {
 // Css pour les mobiles
 @media screen and (max-width: 600px) {
   body {
-    @include flex;
+    display: flex;
     flex-direction: column;
     gap: 3em;
     width: 100%;
   }
 
   header {
-    @include flex;
+    display: flex;
     flex-direction: column;
     gap: 1em;
   }
@@ -287,7 +275,7 @@ header {
 
     a {
       text-align: center;
-      color: $black;
+      color: black;
       text-decoration: none;
       padding: 0.25em;
       //flex: 1 1 45%; // ajuste les éléments en fonction de la largeur de la page
@@ -295,16 +283,15 @@ header {
   }
 
   .presentation {
-    @include flex;
+    display: flex;
     flex-direction: column;
-  }
+    .presentation_left {
+      flex-direction: column;
+      width: 100%;
+    }
 
-  .presentation_left {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .presentation_right {
-    order: -1;
+    .presentation_right {
+      order: -1;
+    }
   }
 }

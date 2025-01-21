@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 * {
-  background-color: rgb(248, 243, 243);
+  background-color: white;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,15 +11,8 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f8f8f8;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-main .circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-50%);
 }
 
 /* CSS pour le header */
@@ -55,7 +48,7 @@ header .button {
   gap: 1em;
 }
 header .button a {
-  background-color: blue;
+  background: linear-gradient(to bottom left, rgb(102, 117, 247), rgb(87, 0, 123));
   padding: 7px 8px;
   border-radius: 8px;
   color: white;
@@ -68,7 +61,7 @@ header .button a {
   width: 100%;
   height: 100vh;
   gap: 5em;
-  margin-top: 2em;
+  margin-top: 5em;
 }
 .presentation .presentation_left {
   display: flex;
@@ -78,9 +71,24 @@ header .button a {
   font-size: 1.5em;
   color: black;
   width: 100%;
+  font-weight: 300;
+}
+.presentation .presentation_left .text-gradient {
+  background: linear-gradient(to right, rgb(222, 67, 150), rgba(13, 28, 159, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.presentation .presentation_left h1 {
+  font-weight: normal;
 }
 .presentation .presentation_left a {
   text-decoration: none;
+  background: linear-gradient(to bottom left, rgb(102, 117, 247), rgb(87, 0, 123));
+  padding: 7px 8px;
+  border-radius: 8px;
+  color: white;
+  width: fit-content;
 }
 .presentation .presentation_right {
   display: flex;
@@ -97,137 +105,110 @@ header .button a {
   align-self: flex-start;
 }
 
-.circle1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateY(-50%) translateX(350px);
-  z-index: -1;
+.second_block {
+  display: flex;
+  flex-direction: column;
+  width: 150%;
+  justify-content: center;
+  transform: translateX(-25%);
+}
+.second_block img {
+  width: fit-content;
+}
+.second_block .second_block_carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.carousel {
-  position: relative;
+.container {
   display: flex;
-  display: flex;
-  border: 1px solid black;
-  flex-direction: column;
-  padding: 0 5%;
-  width: 100%;
-  height: 100vh;
-  margin-top: 2em;
-  background: #f8f8f8;
-  z-index: 1;
-}
-.carousel .texte {
-  font-family: "Inter", sans-serif;
-  font-size: 1.5em;
-  color: black;
-  text-align: center;
-}
-.carousel .image_main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150%;
-  gap: 5em;
-  margin-top: auto;
-  margin-bottom: auto;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.carousel img {
-  width: 58px;
-  height: 58px;
-}
-.carousel .image {
-  display: flex;
-  display: flex;
-  border: 1px solid black;
-  flex-direction: column;
-  max-height: 335px;
-  gap: 2em;
+  flex-wrap: wrap;
+  max-width: 100%;
+  background: white;
+  border-radius: 8px;
   overflow: hidden;
+  padding: 0% 10%;
+  margin-top: 4em;
 }
-.carousel .carousel_image {
+.container .content {
+  flex: 1;
+  padding: 20px;
+}
+.container .content h2 {
+  font-size: 1.5em;
+  margin-bottom: 2em;
+  font-weight: normal;
+}
+.container .content h2 span {
+  font-weight: bold;
+}
+.container .content p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-bottom: 2em;
+  color: #333;
+}
+.container .content p span {
+  color: violet;
+}
+.container .content a {
+  padding: 150px 20px;
+  color: #0077ff;
+  text-decoration: none;
+}
+.container .item_container {
+  flex: 1;
   display: flex;
-  display: flex;
-  border: 1px solid black;
   justify-content: center;
   align-items: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  height: 1em;
 }
-.carousel .carousel_image img {
-  width: 100px;
-  height: 25px;
-}
-.carousel .rectangle_image {
-  display: flex;
-  display: flex;
-  border: 1px solid black;
-  justify-content: center;
-  align-items: flex-end;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: 2em;
-}
-.carousel .rectangle_image img {
-  width: 100px;
-  height: 25px;
+.container .item_container img {
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   body {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 1%;
     width: 100%;
   }
   header {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 0%;
     padding-bottom: 2em;
   }
-  .logo {
+  header .logo {
     padding-bottom: 1em;
   }
-  nav {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
-    background-color: royalblue;
-    padding: 0.5em;
-  }
-  nav a {
+  header a {
     text-align: center;
     color: black;
     text-decoration: none;
-    padding: 0.25em;
-    flex: 1 1 45%;
+    padding: 1em;
+  }
+  .presentation p {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .presentation .presentation_right {
+    display: flex;
+    height: fit-content;
   }
 }
 @media screen and (max-width: 600px) {
   body {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 3em;
     width: 100%;
   }
   header {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 1em;
   }
@@ -247,15 +228,13 @@ header .button a {
   }
   .presentation {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
   }
-  .presentation_left {
+  .presentation .presentation_left {
     flex-direction: column;
     width: 100%;
   }
-  .presentation_right {
+  .presentation .presentation_right {
     order: -1;
   }
 }
