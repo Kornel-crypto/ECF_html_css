@@ -59,6 +59,8 @@ nav.button a {
   color: white;
 }
 
+// premier block d'introduction
+
 .presentation {
   display: flex;
   flex-direction: row;
@@ -112,13 +114,15 @@ nav.button a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+// second block avec les carousels ratés
+
 .second_block img.circle_up {
   position: relative;
   top: 0;
   left: auto;
   transform: translateX(0);
-  width: 100px;
-  height: 100px;
+  height: 50px;
+  width: 50px;
   margin: 0 auto 2em auto;
 }
 
@@ -127,9 +131,10 @@ nav.button a {
   bottom: 0;
   left: auto;
   transform: translateX(0);
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin: 2em auto 0 auto;
+  background-color: rgba(231, 218, 237, 1);
 }
 
 .second_block h3 {
@@ -229,6 +234,65 @@ nav.button a {
   margin-bottom: 2em;
 }
 
+// troisieme block avec la video
+
+.third_block {
+  display: flex;
+  //border: 1px solid black;
+  flex-direction: row;
+  width: 90%;
+  transform: translateX(5%);
+  min-height: 600px;
+  justify-content: center;
+  overflow: hidden;
+  gap: 1em;
+}
+
+.third_block_left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 600px;
+  justify-content: flex-start;
+  overflow: hidden;
+  justify-content: center;
+
+  .deco_line {
+    width: 50px;
+    height: 5px;
+    background-color: #5e35b1;
+    margin-bottom: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 2em;
+  }
+
+  a {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    color: #5e35b1;
+    text-decoration: none;
+  }
+}
+
+.third_block_right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 600px;
+  justify-content: center;
+}
+
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   header.bannier {
     flex-direction: column;
@@ -254,6 +318,17 @@ nav.button a {
 
   .presentation_right {
     order: -1;
+  }
+
+  .third_block {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+
+    .third_block_left {
+      width: 100%;
+      text-align: center;
+      min-height: 100px;
+    }
   }
 }
 
@@ -291,5 +366,16 @@ nav.button a {
   .carousel {
     flex-direction: column;
     align-items: center;
+  }
+
+  .third_block {
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+
+    .third_block_left {
+      width: 100%;
+      text-align: center;
+      min-height: 25px;
+    }
   }
 }
