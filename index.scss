@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 
+/* Variables for consistency */
+$primary-font: "Inter", sans-serif;
+$secondary-font: "Nova Script", cursive;
+$primary-color: #333;
+$secondary-color: rgba(247, 247, 250, 1);
+$shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$padding-standard: 10px 40px;
+
+
+/*essai de mixin*/
+@mixin border($taille, $couleur) {
+  border: $taille solid;
+  border-color: $couleur;
+}
+
 * {
   background-color: white;
   box-sizing: border-box;
@@ -13,16 +28,16 @@ main {
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
 }
 
 header.bannier {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: $padding-standard;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
 }
 
 .logo {
@@ -45,7 +60,7 @@ nav.navigation a {
 }
 
 nav.navigation a:hover {
-  color: #050606;
+  color: $primary-color;
 }
 
 nav.button a {
@@ -59,9 +74,8 @@ nav.button a {
   color: white;
 }
 
-// premier block d'introduction
-
 .presentation {
+  //@include border(10px, $primary-color);// essai de mixin
   display: flex;
   flex-direction: row;
   padding: 0 10%;
@@ -75,9 +89,9 @@ nav.button a {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  font-family: "Inter", sans-serif;
+  font-family: $primary-font;
   font-size: 1.5em;
-  color: black;
+  color: $primary-color;
   font-weight: 300;
 }
 
@@ -108,21 +122,19 @@ nav.button a {
     rgba(255, 255, 255, 1),
     rgba(231, 218, 237, 1)
   );
-  margin-top: 15em;
+  margin-top: 5em;
   padding: 3em 10%;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
 }
-
-// second block avec les carousels ratés
 
 .second_block img.circle_up {
   position: relative;
   top: 0;
   left: auto;
   transform: translateX(0);
-  height: 50px;
-  width: 50px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 2em auto;
 }
 
@@ -131,15 +143,14 @@ nav.button a {
   bottom: 0;
   left: auto;
   transform: translateX(0);
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   margin: 2em auto 0 auto;
-  background-color: rgba(231, 218, 237, 1);
 }
 
 .second_block h3 {
   text-align: center;
-  font-family: "Nova Script", cursive;
+  font-family: $secondary-font;
   font-size: 2em;
   margin-bottom: 1em;
   color: #5e35b1;
@@ -160,7 +171,7 @@ nav.button a {
   padding: 1em;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 250px;
   align-items: center;
@@ -180,7 +191,7 @@ nav.button a {
 
 .carousel h4 {
   font-size: 1.2em;
-  color: #333;
+  color: $primary-color;
 }
 
 .carousel p {
@@ -203,132 +214,136 @@ nav.button a {
   bottom: 0;
   margin: 1em auto;
   text-align: center;
-  color: #333;
+  color: $primary-color;
 }
 
-.container {
+.third_block {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 100%;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  padding: 0% 10%;
-  margin-top: 4em;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3em 10%;
+  background-color: $secondary-color;
+  border-radius: 20px;
+  box-shadow: $shadow;
+  margin: 5em 0;
 }
 
-.container img {
+.third_block .text_section {
+  flex: 1;
+  font-family: $primary-font;
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: $primary-color;
+  padding-right: 2em;
+}
+
+.third_block .image_section img {
   max-width: 100%;
   height: auto;
+  flex: 1;
+  border-radius: 10px;
 }
 
-.content h2 {
+.fourth_block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.fourth_block h2 {
+  margin-top: 1em;
   font-size: 1.5em;
   margin-bottom: 2em;
   font-weight: normal;
 }
 
-.content p {
-  font-size: 1.2em;
-  line-height: 1.5;
-  margin-bottom: 2em;
+.fourth_block img {
+  max-width: 5%;
+  height: auto;
 }
 
-// troisieme block avec la video
+.fourth_block .arrow {
+  margin-left: auto;
+  align-self: flex-end;
+}
 
-.third_block {
+.fifth_block {
   display: flex;
-  //border: 1px solid black;
   flex-direction: row;
-  width: 90%;
-  transform: translateX(5%);
-  min-height: 600px;
-  justify-content: center;
-  overflow: hidden;
-  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  background: $secondary-color;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 
-.third_block_left {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  min-height: 600px;
-  justify-content: flex-start;
-  overflow: hidden;
-  justify-content: center;
-
-  .deco_line {
-    width: 50px;
-    height: 5px;
-    background-color: #5e35b1;
-    margin-bottom: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-    margin-bottom: 2em;
-    font-weight: normal;
-  }
-
-  p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 2em;
-  }
-
-  a {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 2em;
-    color: #5e35b1;
-    text-decoration: none;
-  }
+.fifth_block .image_fifth {
+  max-width: 100px;
+  height: auto;
+  margin: 0 10px;
+  background: $secondary-color;
 }
 
-.third_block_right {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  min-height: 600px;
-  justify-content: center;
+.fifth_block .circle_fifth {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  z-index: 0;
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   header.bannier {
     flex-direction: column;
     gap: 1em;
-    padding-bottom: 2em;
-  }
-
-  nav.navigation {
-    justify-content: center;
-    gap: 1em;
+    align-items: center;
+    text-align: center;
   }
 
   .presentation {
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 2em;
+    height: auto;
+    padding: 0;
   }
 
   .presentation_left {
-    width: 100%;
+    text-align: center;
     font-size: 1.2em;
   }
 
-  .presentation_right {
-    order: -1;
+  .third_block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    gap: 1.5em;
   }
 
-  .third_block {
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
+  .third_block .text_section {
+    padding-right: 0;
+  }
 
-    .third_block_left {
-      width: 100%;
-      text-align: center;
-      min-height: 100px;
-    }
+  .fifth_block {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .fifth_block .image_fifth {
+    max-width: 100px;
+    margin: 10px;
+  }
+
+  .fifth_block .circle_fifth {
+    width: 120px;
+    height: 120px;
+    top: -40px;
   }
 }
 
@@ -336,46 +351,48 @@ nav.button a {
   header.bannier {
     flex-direction: column;
     gap: 1em;
-  }
-
-  nav.navigation {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5em;
+    padding: 10px;
   }
 
   .presentation {
     flex-direction: column;
-    gap: 1em;
     align-items: center;
+    gap: 1em;
+    height: auto;
+    padding: 0;
   }
 
   .presentation_left {
-    font-size: 1em;
-  }
-
-  .presentation_right {
-    order: -1;
-  }
-
-  .second_block {
-    height: auto;
-    padding: 2em;
-  }
-
-  .carousel {
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    font-size: 1.1em;
   }
 
   .third_block {
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5em;
+    gap: 1em;
+  }
 
-    .third_block_left {
-      width: 100%;
-      text-align: center;
-      min-height: 25px;
-    }
+  .third_block .text_section {
+    padding-right: 0;
+  }
+
+  .fifth_block {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .fifth_block .image_fifth {
+    max-width: 90px;
+    margin: 10px;
+    flex: 1 1 30%;
+  }
+
+  .fifth_block .circle_fifth {
+    width: 80px;
+    height: 80px;
+    top: -20px;
   }
 }
