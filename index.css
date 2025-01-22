@@ -2,7 +2,6 @@
 /* Variables for consistency */
 /*essai de mixin*/
 * {
-  background-color: white;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -58,12 +57,22 @@ nav.button a {
 
 .presentation {
   display: flex;
+  position: relative;
   flex-direction: row;
   padding: 0 10%;
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   gap: 5em;
   margin-top: 5em;
+}
+.presentation img.circle_up {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  transform: translateY(50%);
+  width: 100px;
+  height: 100px;
+  z-index: -1;
 }
 
 .presentation_left {
@@ -89,40 +98,23 @@ nav.button a {
 
 .second_block {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
   min-height: 900px;
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(231, 218, 237));
-  margin-top: 5em;
-  padding: 3em 10%;
+  padding-top: 0;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-.second_block img.circle_up {
-  position: relative;
-  top: 0;
-  left: auto;
-  transform: translateX(0);
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 2em auto;
-}
-
-.second_block img.circle_down {
-  position: relative;
-  bottom: 0;
-  left: auto;
-  transform: translateX(0);
-  width: 100px;
-  height: 100px;
-  margin: 2em auto 0 auto;
-}
-
 .second_block h3 {
-  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  justify-content: center;
   font-family: "Nova Script", cursive;
   font-size: 2em;
   margin-bottom: 1em;
@@ -132,9 +124,11 @@ nav.button a {
 .second_block_carousel {
   display: flex;
   gap: 2em;
-  justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
+  min-height: 250px;
   margin-top: 2em;
+  margin-bottom: 2em;
+  overflow-x: scroll;
 }
 
 .carousel {
@@ -146,20 +140,22 @@ nav.button a {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-  align-items: center;
+  min-width: 20em;
   text-align: center;
+}
+.carousel img {
+  max-width: 5em;
 }
 
 .carousel img.carousel_img {
-  max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
 .carousel:hover {
-  transform: translateY(-10px);
+  transform: translateY(30px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
 }
 
 .carousel h4 {
@@ -174,17 +170,18 @@ nav.button a {
 }
 
 .carousel_nodes {
-  display: block;
-  margin: 2em auto;
-  width: 50px;
-  height: 10px;
+  display: flex;
+  margin: 75px auto;
+  width: fit-content;
+  height: 20px;
   background-color: #ddd;
   border-radius: 5px;
 }
 
 .carousel_numb {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 25px;
+  right: 100px;
   margin: 1em auto;
   text-align: center;
   color: #333;
@@ -192,30 +189,57 @@ nav.button a {
 
 .third_block {
   display: flex;
+  position: relative;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 3em 10%;
   background-color: rgb(247, 247, 250);
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 5em 0;
+  margin: 5em 5em;
+  line-height: 2em;
+  font-size: 1.3em;
 }
-
-.third_block .text_section {
-  flex: 1;
+.third_block img.circle_down {
+  position: absolute;
+  top: -45px;
+  left: 60%;
+  transform: translateY(-130%);
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+.third_block .third_block_left {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  flex-direction: column;
+  gap: 2em;
   font-family: "Inter", sans-serif;
   font-size: 1.2em;
-  line-height: 1.6;
   color: #333;
   padding-right: 2em;
 }
-
-.third_block .image_section img {
-  max-width: 100%;
+.third_block .third_block_left .deco_line {
+  width: 75px;
+}
+.third_block .third_block_left .title {
+  padding-bottom: 1em;
+}
+.third_block .third_block_left .information {
+  justify-content: start;
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+.third_block .third_block_right {
+  display: flex;
+  flex-direction: column;
+}
+.third_block .third_block_right img {
+  width: 100%;
   height: auto;
-  flex: 1;
-  border-radius: 10px;
 }
 
 .fourth_block {
