@@ -14,34 +14,58 @@ $padding-standard: 10px 40px;
   border-color: $couleur;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-  h2 {
-    font-size: 1.8em;
+@mixin font_width($number) {
+  @if $number == 1 {
     font-weight: 300;
   }
-
-  h3 {
-    font-size: 1.6em;
-    font-weight: 300;
-  }
-
-  p {
-    font-size: 1.6em;
-    font-weight: 300;
+  @if $number == 2 {
+    font-weight: 700;
+  } @else {
+    @warn "Valeur non reconnue : Utilisez 1 pour léger ou 2 pour gras.";
   }
 }
 
-main {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+* {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  img[src$="circle.png"] {
+    width: 100px;
+  }
   padding: 20px;
   box-shadow: $shadow;
+  //background-color: black;
+  h1 {
+    font-size: 53px;
+    font-weight: 300;
+    line-height: 71px;
+  }
+
+  h2 {
+    font-size: 35px;
+    line-height: 55px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 25px;
+  }
 }
 
 header.bannier {
@@ -90,12 +114,12 @@ nav.button a {
 .presentation {
   //@include border(10px, $primary-color);// essai de mixin
   display: flex;
-  position: relative;
+  //position: relative;
 
   flex-direction: row;
   padding: 0 10%;
   width: 100%;
-  height: 75vh;
+  height: 550px;
   gap: 5em;
   margin-top: 5em;
 
@@ -104,8 +128,6 @@ nav.button a {
     bottom: 0;
     left: 30%;
     transform: translateY(50%);
-    width: 100px;
-    height: 100px;
     z-index: -1;
   }
 }
@@ -115,7 +137,6 @@ nav.button a {
   flex-direction: column;
   gap: 1em;
   font-family: $primary-font;
-  font-size: 1.5em;
   color: $primary-color;
   font-weight: 300;
 }
@@ -132,7 +153,7 @@ nav.button a {
 }
 
 .presentation_right img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -142,7 +163,7 @@ nav.button a {
   flex-direction: column;
   width: 100%;
   min-height: 900px;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
   background: linear-gradient(
     to bottom,
@@ -153,65 +174,64 @@ nav.button a {
   border-radius: 20px;
   box-shadow: $shadow;
 
+  .second_block_h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
   h3 {
     display: flex;
-    position: absolute;
     top: 50px;
     width: 100%;
     justify-content: center;
     font-family: $secondary-font;
-    font-size: 2em;
-    margin-bottom: 1em;
-    color: #5e35b1;
   }
 }
 
 .second_block_carousel {
   display: flex;
-  gap: 2em;
-  width: 100%;
-  min-height: 250px;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  gap: 4em;
+  width: 150%;
+  height: 250px;
+  //margin-bottom: 2em;
+  align-items: center;
   overflow-x: scroll;
-}
+  position: relative; /* Nécessaire pour le centrage */
+  left: 50%; /* Positionne le coin gauche au centre */
+  transform: translateX(-50%); /* Décale l'élément pour le centrer */
 
-.carousel {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: $shadow;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-width: 20em;
-  text-align: center;
-  img {
-    max-width: 5em;
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 250px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: $shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
   }
-}
 
-.carousel img.carousel_img {
-  height: auto;
-  border-radius: 8px;
-}
+  .carousel_img {
+    width: 15%;
+    height: auto;
+    border-radius: 8px;
+  }
 
-.carousel:hover {
-  transform: translateY(30px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid black;
-}
+  .carousel:hover {
+    transform: translateY(30px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+  }
 
-.carousel h4 {
-  font-size: 1.2em;
-  color: $primary-color;
-}
+  h3 {
+    color: $primary-color;
+  }
 
-.carousel p {
-  font-size: 0.9em;
-  color: #666;
-  line-height: 1.4;
+  p {
+    color: #666;
+  }
 }
 
 .carousel_nodes {
@@ -381,7 +401,7 @@ nav.button a {
   display: flex;
   @include border(1px, red);
   width: 100%;
-  height: 800px;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
 
@@ -432,29 +452,97 @@ nav.button a {
     .sixth_block_arrow01 {
       position: absolute;
       top: 50%;
-      left: -25em;
+      left: -75%;
     }
 
     .sixth_block_arrow02 {
       position: absolute;
       transform: rotate(180deg);
       top: 50%;
-      right: -25em;
+      right: -75%;
     }
   }
 
   .sixth_block_down {
     display: flex;
+    @include border(1px, blue);
+    width: 80%;
     flex-direction: row;
 
     .block_down {
       display: flex;
+      @include border(1px, red);
       flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+      //padding: 0 2em;
+      margin: 0 auto;
+      justify-content: center;
 
-      .down_portrait {
+      .down_name {
+        color: rgba(160, 174, 192, 1);
+      }
+
+      .down_work {
+        color: rgba(226, 232, 240, 1);
       }
     }
   }
+}
+
+.seven_block {
+  display: flex;
+  position: relative;
+  @include border(5px, violet);
+  width: 100%;
+  height: 33vh;
+  justify-content: center;
+  align-items: center;
+
+  .block_text {
+    display: flex;
+    @include border(5px, rgb(162, 30, 52));
+    width: 20%;
+    flex-direction: column;
+    align-items: center;
+    line-height: 6em;
+
+    h3 {
+      font-size: 48px;
+      font-weight: 300;
+    }
+
+    img {
+      width: 75px;
+    }
+  }
+
+  .block_img1 {
+    position: absolute;
+    width: 20%;
+    top: -60%;
+    left: 6%;
+  }
+
+  .block_img2 {
+    position: absolute;
+    width: 25px;
+    top: 25%;
+    left: 30%;
+  }
+
+  .block_img3 {
+    position: absolute;
+    width: 30%;
+    transform: rotate(270deg);
+    top: -70%;
+    right: 6%;
+  }
+}
+
+.height_block {
+  display: flex;
+  width: 100%;
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
