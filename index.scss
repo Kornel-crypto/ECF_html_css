@@ -18,6 +18,21 @@ $padding-standard: 10px 40px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  h2 {
+    font-size: 1.8em;
+    font-weight: 300;
+  }
+
+  h3 {
+    font-size: 1.6em;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 1.6em;
+    font-weight: 300;
+  }
 }
 
 main {
@@ -112,6 +127,7 @@ nav.button a {
     rgba(13, 28, 159, 0)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -294,25 +310,38 @@ nav.button a {
 
 .fourth_block {
   display: flex;
+  position: relative;
+  width: 100%;
+  padding: 0 10%;
   flex-direction: column;
   line-height: 1.5;
-}
 
-.fourth_block h2 {
-  margin-top: 1em;
-  font-size: 1.5em;
-  margin-bottom: 2em;
-  font-weight: normal;
-}
+  h2 {
+    margin-top: 1em;
+    font-size: 1.8em;
+    margin-bottom: 2em;
+    font-weight: normal;
+  }
+  .deco_line {
+    width: 75px;
+  }
 
-.fourth_block img {
-  max-width: 5%;
-  height: auto;
-}
+  .arrow {
+    margin-left: auto;
+    align-self: flex-end;
+    width: 150px;
+  }
 
-.fourth_block .arrow {
-  margin-left: auto;
-  align-self: flex-end;
+  .circle_fourth {
+    position: absolute;
+    top: 290px;
+    left: 75%;
+    //transform: translateY(200%);
+    z-index: -1;
+    width: 75px;
+    height: 75px;
+    z-index: -1;
+  }
 }
 
 .fifth_block {
@@ -321,27 +350,111 @@ nav.button a {
   justify-content: space-between;
   align-items: center;
   background: $secondary-color;
-  padding: 20px;
+  min-width: 20em;
+  height: 15vh;
+  gap: 6em;
   border-radius: 10px;
+  padding: 0 2%;
   position: relative;
-  z-index: 1;
-}
-
-.fifth_block .image_fifth {
-  max-width: 100px;
-  height: auto;
-  margin: 0 10px;
-  background: $secondary-color;
-}
-
-.fifth_block .circle_fifth {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  transform: translateY(-50%);
-  width: 150px;
-  height: 150px;
   z-index: 0;
+  overflow-x: scroll;
+
+  .image_fifth {
+    width: 12em;
+    min-width: 6em;
+    height: auto;
+    background: $secondary-color;
+  }
+
+  .circle_fifth {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    z-index: 0;
+  }
+}
+
+.sixth_block {
+  display: flex;
+  @include border(1px, red);
+  width: 100%;
+  height: 800px;
+  flex-direction: column;
+  align-items: center;
+
+  .sixth_block_upper {
+    display: flex;
+    position: relative;
+    padding: 0 8em;
+    @include border(1px, green);
+    width: 40em;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10em;
+    margin-bottom: 5em;
+
+    gap: 2em;
+
+    .sixth_block_image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h3 {
+      font-size: 1.8em;
+      width: 80%;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.5em;
+      text-align: center;
+      width: 100%;
+    }
+
+    .sixth_block_comma01 {
+      position: absolute;
+      top: 135px;
+      left: 100px;
+    }
+
+    .sixth_block_comma02 {
+      position: absolute;
+      bottom: 0;
+      right: 100px;
+    }
+
+    .sixth_block_arrow01 {
+      position: absolute;
+      top: 50%;
+      left: -25em;
+    }
+
+    .sixth_block_arrow02 {
+      position: absolute;
+      transform: rotate(180deg);
+      top: 50%;
+      right: -25em;
+    }
+  }
+
+  .sixth_block_down {
+    display: flex;
+    flex-direction: row;
+
+    .block_down {
+      display: flex;
+      flex-direction: column;
+
+      .down_portrait {
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
@@ -378,19 +491,14 @@ nav.button a {
   }
 
   .fifth_block {
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     padding: 15px;
-  }
+    height: 15vh;
 
-  .fifth_block .image_fifth {
-    max-width: 100px;
-    margin: 10px;
-  }
-
-  .fifth_block .circle_fifth {
-    width: 120px;
-    height: 120px;
-    top: -40px;
+    .image_fifth {
+      width: 6em;
+      margin: 10px;
+    }
   }
 }
 
@@ -427,12 +535,11 @@ nav.button a {
   }
 
   .fifth_block {
-    flex-wrap: wrap;
     padding: 10px;
   }
 
   .fifth_block .image_fifth {
-    max-width: 90px;
+    width: 4em;
     margin: 10px;
     flex: 1 1 30%;
   }
