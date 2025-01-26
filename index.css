@@ -1,15 +1,14 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
 /* Variables for consistency */
 /*essai de mixin*/
 * {
-  overflow-x: hidden;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-family: "Inter", sans-serif, "Times New Roman", serif;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -36,8 +35,13 @@ body p {
 }
 body a {
   text-decoration: none;
-  color: #333;
   font-size: 25px;
+}
+body a:hover {
+  color: blue;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 header.bannier {
@@ -47,74 +51,66 @@ header.bannier {
   padding: 10px 40px;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 300;
 }
-
-.logo {
+header.bannier .logo {
   display: flex;
   align-items: center;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 30px;
   font-family: "Inspiration", cursive;
   gap: 1em;
 }
-
-nav.navigation {
+header.bannier nav.navigation {
   display: flex;
   gap: 1em;
-  font-size: 1.15em;
 }
-
-nav.navigation a {
-  text-decoration: none;
-}
-
-nav.navigation a:hover {
-  color: #333;
-}
-
-nav.button a {
-  background: linear-gradient(to bottom left, rgb(102, 117, 247), rgb(87, 0, 123));
-  padding: 7px 8px;
+header.bannier nav.button a {
+  padding: 3px 8px;
   border-radius: 8px;
   color: white;
+  background: linear-gradient(to bottom left, rgb(102, 117, 247), rgb(87, 0, 123));
+}
+header.bannier nav.button a:hover {
+  transform: scale(1.1);
+  color: yellow;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: box-shadow 0.3s ease;
 }
 
 .presentation {
   display: flex;
+  position: relative;
   flex-direction: row;
   padding: 0 10%;
   width: 100%;
   height: 550px;
   gap: 5em;
-  margin-top: 5em;
+  margin: 8em 0;
 }
 .presentation img.circle_up {
   position: absolute;
-  bottom: 0;
+  bottom: -35%;
   left: 30%;
-  transform: translateY(50%);
   z-index: -1;
 }
-
-.presentation_left {
+.presentation .presentation_left {
   display: flex;
   flex-direction: column;
+  width: 50%;
   gap: 1em;
-  font-family: "Inter", sans-serif;
   color: #333;
   font-weight: 300;
 }
-
-.text-gradient {
-  background: linear-gradient(to right, rgb(222, 67, 150), rgba(13, 28, 159, 0));
+.presentation .presentation_left .text-gradient {
+  background: linear-gradient(to bottom left, rgb(222, 67, 150), rgba(13, 28, 159, 0));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.presentation_right img {
+.presentation .presentation_right img {
   width: 100%;
-  height: auto;
+  height: fit-content;
 }
 
 .second_block {
@@ -122,9 +118,8 @@ nav.button a {
   position: relative;
   flex-direction: column;
   width: 100%;
-  min-height: 900px;
-  justify-content: space-between;
-  overflow: hidden;
+  height: 900px;
+  justify-content: space-around;
   background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(231, 218, 237));
   padding-top: 0;
   border-radius: 20px;
@@ -140,49 +135,8 @@ nav.button a {
   top: 50px;
   width: 100%;
   justify-content: center;
-  font-family: "Nova Script", cursive;
 }
-
-.second_block_carousel {
-  display: flex;
-  gap: 4em;
-  width: 150%;
-  height: 250px;
-  align-items: center;
-  overflow-x: scroll;
-  position: relative; /* Nécessaire pour le centrage */
-  left: 50%; /* Positionne le coin gauche au centre */
-  transform: translateX(-50%); /* Décale l'élément pour le centrer */
-}
-.second_block_carousel .carousel {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  width: 250px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-.second_block_carousel .carousel_img {
-  width: 15%;
-  height: auto;
-  border-radius: 8px;
-}
-.second_block_carousel .carousel:hover {
-  transform: translateY(30px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid black;
-}
-.second_block_carousel h3 {
-  color: #333;
-}
-.second_block_carousel p {
-  color: #666;
-}
-
-.carousel_nodes {
+.second_block .carousel_nodes {
   display: flex;
   margin: 75px auto;
   width: fit-content;
@@ -190,8 +144,7 @@ nav.button a {
   background-color: #ddd;
   border-radius: 5px;
 }
-
-.carousel_numb {
+.second_block .carousel_numb {
   position: absolute;
   bottom: 25px;
   right: 100px;
@@ -199,26 +152,62 @@ nav.button a {
   text-align: center;
   color: #333;
 }
+.second_block .second_block_carousel {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  width: 100%;
+  align-items: center;
+  overflow-x: scroll;
+}
+.second_block .second_block_carousel .carousel {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px;
+  gap: 1em;
+  min-width: 250px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.second_block .second_block_carousel .carousel_img {
+  width: 25px;
+  align-self: normal;
+  height: auto;
+  border-radius: 8px;
+}
+.second_block .second_block_carousel .carousel:hover {
+  transform: translateY(30px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}
+.second_block .second_block_carousel h3 {
+  color: #333;
+}
+.second_block .second_block_carousel p {
+  color: #666;
+}
 
 .third_block {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   padding: 3em 10%;
   background-color: rgb(247, 247, 250);
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 5em 5em;
   line-height: 2em;
-  font-size: 1.3em;
 }
 .third_block img.circle_down {
   position: absolute;
-  top: -45px;
+  top: -25%;
   left: 60%;
-  transform: translateY(-130%);
   width: 100px;
   height: 100px;
   z-index: -1;
@@ -229,8 +218,6 @@ nav.button a {
   width: 50%;
   flex-direction: column;
   gap: 2em;
-  font-family: "Inter", sans-serif;
-  font-size: 1.2em;
   color: #333;
   padding-right: 2em;
 }
@@ -265,9 +252,7 @@ nav.button a {
 }
 .fourth_block h2 {
   margin-top: 1em;
-  font-size: 1.8em;
   margin-bottom: 2em;
-  font-weight: normal;
 }
 .fourth_block .deco_line {
   width: 75px;
@@ -279,7 +264,7 @@ nav.button a {
 }
 .fourth_block .circle_fourth {
   position: absolute;
-  top: 290px;
+  top: 315px;
   left: 75%;
   z-index: -1;
   width: 75px;
@@ -323,7 +308,7 @@ nav.button a {
   border: 1px solid;
   border-color: red;
   width: 100%;
-  height: 100vh;
+  height: 900px;
   flex-direction: column;
   align-items: center;
 }
@@ -333,7 +318,7 @@ nav.button a {
   padding: 0 8em;
   border: 1px solid;
   border-color: green;
-  width: 40em;
+  width: 75%;
   flex-direction: column;
   align-items: center;
   margin-top: 10em;
@@ -347,12 +332,10 @@ nav.button a {
   align-items: center;
 }
 .sixth_block .sixth_block_upper h3 {
-  font-size: 1.8em;
   width: 80%;
   text-align: center;
 }
 .sixth_block .sixth_block_upper p {
-  font-size: 1.5em;
   text-align: center;
   width: 100%;
 }
@@ -369,13 +352,13 @@ nav.button a {
 .sixth_block .sixth_block_upper .sixth_block_arrow01 {
   position: absolute;
   top: 50%;
-  left: -75%;
+  left: -10%;
 }
 .sixth_block .sixth_block_upper .sixth_block_arrow02 {
   position: absolute;
   transform: rotate(180deg);
   top: 50%;
-  right: -75%;
+  right: -10%;
 }
 .sixth_block .sixth_block_down {
   display: flex;
@@ -407,9 +390,10 @@ nav.button a {
   border: 5px solid;
   border-color: violet;
   width: 100%;
-  height: 33vh;
+  height: 50vh;
   justify-content: center;
   align-items: center;
+  overflow-x: visible;
 }
 .seven_block .block_text {
   display: flex;
@@ -418,11 +402,7 @@ nav.button a {
   width: 20%;
   flex-direction: column;
   align-items: center;
-  line-height: 6em;
-}
-.seven_block .block_text h3 {
-  font-size: 48px;
-  font-weight: 300;
+  text-align: center;
 }
 .seven_block .block_text img {
   width: 75px;
@@ -430,7 +410,7 @@ nav.button a {
 .seven_block .block_img1 {
   position: absolute;
   width: 20%;
-  top: -60%;
+  top: -40%;
   left: 6%;
 }
 .seven_block .block_img2 {
@@ -443,92 +423,70 @@ nav.button a {
   position: absolute;
   width: 30%;
   transform: rotate(270deg);
-  top: -70%;
+  top: -50%;
   right: 6%;
 }
 
 .height_block {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  padding: 10% 10%;
+}
+.height_block section {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 3em;
+  background-color: rgb(241, 242, 255);
+  border-radius: 5px;
+}
+.height_block section h2 {
+  font-size: 1.8em;
+}
+.height_block section left_block {
+  width: auto;
+}
+.height_block section .right_block {
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  border: 1px solid black;
+}
+.height_block section .right_block h2 {
+  padding-top: 1em;
+  padding-bottom: 2em;
+  padding-left: 1em;
+}
+.height_block section .right_block p {
+  padding: 0 2em;
+}
+.height_block section .right_block .text_block_read {
+  padding-top: 6em;
+  padding-left: 25em;
+  width: fit-content;
+}
+.height_block section .right_block .text_block_read:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.1s ease;
+}
+.height_block .case-study {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.height_block .case-study img {
+  width: 18%;
+}
+.height_block .case-study img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.1s ease;
 }
 
-@media screen and (min-width: 600px) and (max-width: 1024px) {
-  header.bannier {
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-    text-align: center;
-  }
-  .presentation {
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-    height: auto;
-    padding: 0;
-  }
-  .presentation_left {
-    text-align: center;
-    font-size: 1.2em;
-  }
-  .third_block {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2em;
-    gap: 1.5em;
-  }
-  .third_block .text_section {
-    padding-right: 0;
-  }
-  .fifth_block {
-    padding: 15px;
-    height: 15vh;
-  }
-  .fifth_block .image_fifth {
-    width: 6em;
-    margin: 10px;
-  }
-}
-@media screen and (max-width: 600px) {
-  header.bannier {
-    flex-direction: column;
-    gap: 1em;
-    padding: 10px;
-  }
-  .presentation {
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    height: auto;
-    padding: 0;
-  }
-  .presentation_left {
-    text-align: center;
-    font-size: 1.1em;
-  }
-  .third_block {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.5em;
-    gap: 1em;
-  }
-  .third_block .text_section {
-    padding-right: 0;
-  }
-  .fifth_block {
-    padding: 10px;
-  }
-  .fifth_block .image_fifth {
-    width: 4em;
-    margin: 10px;
-    flex: 1 1 30%;
-  }
-  .fifth_block .circle_fifth {
-    width: 80px;
-    height: 80px;
-    top: -20px;
-  }
-}
+
 
 /*# sourceMappingURL=index.css.map */
