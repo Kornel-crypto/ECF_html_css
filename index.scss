@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Script&display=swap");
-/* Variables for consistency */
+
+// les imports
+@import "responsivetablette";
+@import "responsivemobile";
+
 /*essai de mixin*/
 * {
   //overflow-x: hidden;
@@ -326,10 +330,9 @@ header.bannier {
 
 .sixth_block {
   display: flex;
-  border: 1px solid;
-  border-color: red;
+  // border: 1px solid;
+  // border-color: red;
   width: 100%;
-  height: 900px;
   flex-direction: column;
   align-items: center;
 
@@ -337,8 +340,8 @@ header.bannier {
     display: flex;
     position: relative;
     padding: 0 8em;
-    border: 1px solid;
-    border-color: green;
+    // border: 1px solid;
+    // border-color: green;
     width: 75%;
     flex-direction: column;
     align-items: center;
@@ -391,15 +394,15 @@ header.bannier {
 
   .sixth_block_down {
     display: flex;
-    border: 1px solid;
-    border-color: blue;
+    // border: 1px solid;
+    // border-color: blue;
     width: 80%;
     flex-direction: row;
 
     .block_down {
       display: flex;
-      border: 1px solid;
-      border-color: red;
+      // border: 1px solid;
+      // border-color: red;
       flex-direction: column;
       align-items: center;
       gap: 0.5em;
@@ -420,16 +423,16 @@ header.bannier {
 .seven_block {
   display: flex;
   position: relative;
-  border: 5px solid;
-  border-color: violet;
   width: 100%;
-  height: 50vh;
+  padding-top: 10em;
+  //height: 500px;
   justify-content: center;
   align-items: center;
   overflow-x: visible;
+  flex: 1 1;
   .block_text {
     display: flex;
-    border: 5px solid;
+    //border: 5px solid;
     border-color: rgb(162, 30, 52);
     width: 20%;
     flex-direction: column;
@@ -466,10 +469,11 @@ header.bannier {
   flex-direction: column;
   width: 100%;
   padding: 10% 10%;
+  flex: 1 1;
   section {
     display: flex;
     width: 100%;
-    height: 30%;
+    //  height: 30%;
     margin-bottom: 3em;
     // height: 30em;
     background-color: rgba(241, 242, 255, 1);
@@ -559,7 +563,7 @@ header.bannier {
       gap: 1rem;
       height: 200px;
       width: 40%;
-      border: 1px solid black;
+      //border: 1px solid black;
       background-color: rgba(250, 250, 250, 1);
 
       .img_block {
@@ -605,10 +609,10 @@ header.bannier {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15em;
+  gap: 5em;
   border-radius: 10px;
   //padding-top: 5em;
-  margin: 5em;
+  margin: 2em;
   height: 25em;
   width: 90%;
   .text_block {
@@ -647,11 +651,15 @@ header.bannier {
 
     & > div {
       flex: 1;
+      margin-bottom: 20px;
     }
 
     .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
       img {
-        max-width: 50px;
+        max-width: 40px;
         margin-bottom: 15px;
       }
 
@@ -665,12 +673,13 @@ header.bannier {
         gap: 10px;
 
         img {
-          max-height: 30px;
+          //max-height: 50px;
+          width: 45%;
         }
 
         span {
           font-weight: bold;
-          //font-size: 18px;
+          font-size: 14px;
         }
       }
     }
@@ -726,98 +735,10 @@ header.bannier {
 
         a {
           img {
-            max-width: 20px;
+            max-width: 65px;
           }
         }
       }
     }
   }
-
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #444;
-    padding-top: 10px;
-
-    p {
-      margin: 0;
-    }
-  }
 }
-
-// @media screen and (min-width: 600px) and (max-width: 1024px) {
-//   header.bannier {
-//     flex-direction: column;
-//     gap: 1em;
-//     align-items: center;
-//     text-align: center;
-//   }
-//   .presentation {
-//     flex-direction: column;
-//     align-items: center;
-//     gap: 2em;
-//     height: auto;
-//     padding: 0;
-//   }
-//   .presentation_left {
-//     text-align: center;
-//   }
-//   .third_block {
-//     flex-direction: column;
-//     align-items: center;
-//     text-align: center;
-//     padding: 2em;
-//     gap: 1.5em;
-//   }
-//   .third_block .text_section {
-//     padding-right: 0;
-//   }
-//   .fifth_block {
-//     padding: 15px;
-//     height: 15vh;
-//   }
-//   .fifth_block .image_fifth {
-//     width: 6em;
-//     margin: 10px;
-//   }
-// }
-// @media screen and (max-width: 600px) {
-//   header.bannier {
-//     flex-direction: column;
-//     gap: 1em;
-//     padding: 10px;
-//   }
-//   .presentation {
-//     flex-direction: column;
-//     align-items: center;
-//     gap: 1em;
-//     height: auto;
-//     padding: 0;
-//   }
-//   .presentation_left {
-//     text-align: center;
-//   }
-//   .third_block {
-//     flex-direction: column;
-//     align-items: center;
-//     text-align: center;
-//     padding: 1.5em;
-//     gap: 1em;
-//   }
-//   .third_block .text_section {
-//     padding-right: 0;
-//   }
-//   .fifth_block {
-//     padding: 10px;
-//   }
-//   .fifth_block .image_fifth {
-//     width: 4em;
-//     margin: 10px;
-//     // flex: 1 1 30%;
-//   }
-//   .fifth_block .circle_fifth {
-//     width: 80px;
-//     height: 80px;
-//     top: -20px;
-//   }
-// }

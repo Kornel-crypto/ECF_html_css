@@ -1,0 +1,268 @@
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+  // Bannière
+  header.bannier {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+
+    .logo {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .navigation {
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .button {
+      margin-top: 1em;
+    }
+  }
+
+  // Présentation
+  .presentation {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+
+    .presentation_left {
+      width: 90%;
+    }
+
+    .presentation_right img {
+      width: 80%;
+    }
+  }
+
+  // Second block
+  .second_block {
+    text-align: center;
+
+    .second_block_carousel {
+      overflow-x: scroll;
+      gap: 2em;
+      justify-content: center;
+
+      .carousel {
+        min-width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Third block
+  .third_block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    gap: 1.5em;
+
+    .third_block_left,
+    .third_block_right {
+      width: 90%;
+    }
+  }
+
+  // Fourth block
+  .fourth_block {
+    align-items: center;
+    text-align: center;
+
+    .arrow {
+      display: none;
+    }
+
+    .circle_fourth {
+      width: 50px;
+      height: 50px;
+      display: none;
+    }
+  }
+
+  // Fifth block
+  .fifth_block {
+    gap: 1em;
+    overflow-x: scroll;
+    justify-content: center;
+
+    .image_fifth {
+      width: 6em;
+    }
+  }
+
+  // Sixth block
+  .sixth_block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1em;
+
+    .sixth_block_upper {
+      width: 90%;
+      padding: 1em;
+      gap: 1.5em;
+
+      h3 {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .sixth_block_arrow01,
+      .sixth_block_arrow02 {
+        display: none;
+      }
+
+      .sixth_block_comma01,
+      .sixth_block_comma02 {
+        display: none;
+      }
+    }
+
+    .sixth_block_down {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5em;
+      width: 90%;
+
+      .block_down {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0.5em;
+
+        .down_portrait {
+          width: 50px;
+          height: auto;
+        }
+
+        .down_name,
+        .down_work {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  // Seven block
+  .seven_block {
+    //flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2em 1em;
+    gap: 1.5em;
+
+    .block_text {
+      width: 90%;
+    }
+
+    .block_img1,
+    .block_img2,
+    .block_img3 {
+      display: none;
+    }
+  }
+
+  // Height block
+  .height_block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2em;
+    padding: 2em 1em;
+
+    section.block {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+
+      .left_block {
+        margin-bottom: 1em;
+
+        img {
+          width: 80%;
+          height: auto;
+        }
+      }
+
+      .right_block {
+        width: 90%;
+        padding: 1em;
+
+        h2 {
+          font-size: 18px;
+          margin-bottom: 1em;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .text_block_read {
+          margin-top: 1em;
+
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .eleven_block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2em 1em;
+    gap: none;
+
+    .text_block {
+      width: 90%;
+    }
+  }
+
+  // Footer
+  footer.footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .footer-section {
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+
+      .footer-logo {
+        text-align: center;
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      .footer-links ul {
+        text-align: center;
+        li {
+          text-align: center;
+        }
+      }
+
+      .footer-contact {
+        text-align: center;
+
+        .footer-social {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
